@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Deals</title>
+    <!-- Google Fonts for better typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Reset some default styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #ff6f61;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        header p {
+            font-size: 1.2em;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            background-color: #fafafa;
+        }
+
+        .card-content {
+            padding: 15px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-content h2 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            flex-grow: 1;
+        }
+
+        .price-section {
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 1.2em;
+            color: #ff6f61;
+            font-weight: bold;
+        }
+
+        .original-price {
+            text-decoration: line-through;
+            color: #888;
+            margin-left: 10px;
+            font-size: 0.9em;
+        }
+
+        .discount {
+            background-color: #ff6f61;
+            color: #fff;
+            padding: 5px 8px;
+            border-radius: 5px;
+            font-size: 0.9em;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        .rating {
+            margin-bottom: 10px;
+        }
+
+        .rating span {
+            color: #f39c12;
+            margin-right: 5px;
+        }
+
+        .btn {
+            text-decoration: none;
+            background-color: #ff6f61;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #e85c50;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .card img {
+                height: 180px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.5em;
+            }
+
+            .card img {
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🔥 Best Deals of the Day 🔥</h1>
+        <p>Grab these amazing deals before they're gone!</p>
+    </header>
+
+    <div class="container" id="product-container">
+        <!-- Product Cards will be injected here by JavaScript -->
+    </div>
+
+    <footer style="text-align: center; padding: 20px; background-color: #fff; box-shadow: 0 -2px 4px rgba(0,0,0,0.1);">
+        <p>&copy; 2025 Best Deals. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const products = [
+            {
+              "Id": 354866,
+              "Message": "📉 <strong><i>HISTORICAL MINIMUM</i></strong> 📉<br />\n<br />\n👀 Braun Series 5 Electric Shaver, with Beard Trimmer<br />\n<br />\n💰 <strong>At only 101.99£</strong> instead of 169.99£ <i>(-40%)</i><br />\n<br />\n🔎 <a href=\"https://www.amazon.co.uk/dp/B085CXYPFZ/?tag=tarek24-21&psc=1\" target=\"_blank\" rel=\"nofollow\">https://www.amazon.co.uk/dp/B085CXYPFZ/?tag=tarek24-21&psc=1</a>",
+              "OriginalPrice": 169.99,
+              "ProductPrice": 101.99,
+              "DiscountPercentage": 40.002353079592917230425319140,
+              "ProductUrl": "https://www.amazon.co.uk/dp/B085CXYPFZ",
+              "ProductImage": "https://m.media-amazon.com/images/I/81T92ZJCBHL.__AC_SX300_SY300_QL70_ML2_.jpg",
+              "ProductImageTempName": "C:\\Users\\MR\\source\\repos\\Automation.2024\\Deals\\Images\\20241231_102018492.jpg",
+              "ProductShortUrl": "https://amzlink.to/az0db249GEgwC",
+              "ProductCoupon": "",
+              "Posted": true,
+              "AmazonProcessed": false,
+              "WhyNotAllowed": null,
+              "AddedDateTime": "2024-12-31T10:20:11.8651449+05:00",
+              "ProductTitle": "Braun Series 5 Electric Shaver, with Beard Trimmer, Charging Stand, Wet & Dry, 100% Waterproof, Easy Clean System, 2 Pin Bathroom Plug, 50-M4500cs, Mint Razor",
+              "GroupType": 0,
+              "ShortTitle": null
+            },
+            {
+              "Id": 354865,
+              "Message": "👀 MY LIKE Expandable Dish Drainer Rack with Drip Tray Black Draining Board Rack with<br />\n<br />\n💰 <strong>At only 42.50£</strong> instead of 43.99£ <i>(-3%)</i><br />\n<br />\n🔎 <a href=\"https://www.amazon.co.uk/dp/B0CXPJ1B51/?tag=challengefr06-21&psc=1\" target=\"_blank\" rel=\"nofollow\">https://www.amazon.co.uk/dp/B0CXPJ1B51/?tag=challengefr06-21&psc=1</a><br />\n<br />\n⭐ 67 Reviews: 4.5 / 5.0<br />\n🚚 Sold by <i>TASHA EMPIRE LTD</i> and shipped by <i>Amazon</i>",
+              "OriginalPrice": 43.99,
+              "ProductPrice": 42.50,
+              "DiscountPercentage": 3.3871334394180495567174357800,
+              "ProductUrl": "https://www.amazon.co.uk/dp/B0CXPJ1B51",
+              "ProductImage": "https://m.media-amazon.com/images/I/71l4jOYj9NL._AC_SL1500_.jpg",
+              "ProductImageTempName": null,
+              "ProductShortUrl": null,
+              "ProductCoupon": "",
+              "Posted": false,
+              "AmazonProcessed": false,
+              "WhyNotAllowed": null,
+              "AddedDateTime": "2024-12-31T10:20:11.8709711+05:00",
+              "ProductTitle": "MY LIKE Expandable Dish Drainer Rack with Drip Tray Black Draining Board Rack with Stainless Steel Material Dish Drying Rack & Washing Up Drainers for Kitchen Sink with Wooden Handle in Large Capacity",
+              "GroupType": 0,
+              "ShortTitle": null
+            },
+            {
+              "Id": 354864,
+              "Message": "📉 <strong><i>HISTORICAL MINIMUM</i></strong> 📉<br />\n<br />\n👀 Nose Hair Trimmer for Men 2024 Upgrade Nose Trimmer Rechargeable Nasal Hair Trimmers for Men,Dual Edge Blades,Battery(Included)<br />\n<br />\n💰 <strong>At only 8.49£</strong> instead of 16.99£ <i>(-50%)</i><br />\n<br />\n🔎 <a href=\"https://www.amazon.co.uk/dp/B0DK4KQCYG/?tag=tarek24-21&psc=1\" target=\"_blank\" rel=\"nofollow\">https://www.amazon.co.uk/dp/B0DK4KQCYG/?tag=tarek24-21&psc=1</a>",
+              "OriginalPrice": 16.99,
+              "ProductPrice": 8.49,
+              "DiscountPercentage": 50.029429075927015891701000590,
+              "ProductUrl": "https://www.amazon.co.uk/dp/B0DK4KQCYG",
+              "ProductImage": "https://m.media-amazon.com/images/I/51fBZlYQmML._AC_.jpg",
+              "ProductImageTempName": "C:\\Users\\MR\\source\\repos\\Automation.2024\\Deals\\Images\\20241231_102249946.jpg",
+              "ProductShortUrl": "https://amzlink.to/az0gFrjcNlCe4",
+              "ProductCoupon": "",
+              "Posted": true,
+              "AmazonProcessed": false,
+              "WhyNotAllowed": null,
+              "AddedDateTime": "2024-12-31T10:20:11.8728368+05:00",
+              "ProductTitle": "Nose Hair Trimmer for Men 2024 Upgrade Nose Trimmer Rechargeable Nasal Hair Trimmers for Men,Dual Edge Blades,Battery(Included)-Operated with IPX7 Waterproof for Easy Cleansing,Grey Gold",
+              "GroupType": 0,
+              "ShortTitle": null
+            },
+            {
+              "Id": 354862,
+              "Message": "❌ <strong><i>PRICE ERROR</i></strong> ❌<br />\n<br />\n👀 Elizabeth Arden Provocative Woman Eau de Parfum, 100ml<br />\n<br />\n💰 <strong>At only 19.27£</strong> instead of 51.00£ <i>(-62%)</i><br />\n<br />\n🔎 <a href=\"https://www.amazon.co.uk/dp/B000C1Z4UI/?tag=tarek24-21&psc=1\" target=\"_blank\" rel=\"nofollow\">https://www.amazon.co.uk/dp/B000C1Z4UI/?tag=tarek24-21&psc=1</a><br />\n<br />\n⭐ 775 Reviews: 4.4 / 5.0<br />\n🚚 Sold and shipped by <i>Amazon</i>",
+              "OriginalPrice": 51.00,
+              "ProductPrice": 19.27,
+              "DiscountPercentage": 62.215686274509803921568627450,
+              "ProductUrl": "https://www.amazon.co.uk/dp/B000C1Z4UI",
+              "ProductImage": "https://m.media-amazon.com/images/I/81Ca-zL0gtL.__AC_SY445_SX342_QL70_ML2_.jpg",
+              "ProductImageTempName": "C:\\Users\\MR\\source\\repos\\Automation.2024\\Deals\\Images\\20241231_102519780.jpg",
+              "ProductShortUrl": "https://amzlink.to/az09A7T4lpR53",
+              "ProductCoupon": "",
+              "Posted": true,
+              "AmazonProcessed": false,
+              "WhyNotAllowed": null,
+              "AddedDateTime": "2024-12-31T10:20:11.8832204+05:00",
+              "ProductTitle": "Elizabeth Arden Provocative Women Eau de Parfum",
+              "GroupType": 0,
+              "ShortTitle": null
+            },
+            {
+              "Id": 354861,
+              "Message": "👀 Branston Baked Beans in Tomato Sauce, 410 g (Pack of 4)<br />\n<br />\n💰 <strong>At only 2.25£</strong> instead of 2.59£ <i>(-13%)</i><br />\n<br />\n🔎 <a href=\"https://www.amazon.co.uk/dp/B01ETAEQSS/?tag=challengefr06-21&psc=1\" target=\"_blank\" rel=\"nofollow\">https://www.amazon.co.uk/dp/B01ETAEQSS/?tag=challengefr06-21&psc=1</a><br />\n<br />\n⭐ 1240 Reviews: 4.6 / 5.0<br />\n🚚 Sold and shipped by <i>Amazon</i>",
+              "OriginalPrice": 2.59,
+              "ProductPrice": 2.25,
+              "DiscountPercentage": 13.127413127413127413127413130,
+              "ProductUrl": "https://www.amazon.co.uk/dp/B01ETAEQSS",
+              "ProductImage": "https://m.media-amazon.com/images/I/81U9nJtuAvL._AC_SL1500_.jpg",
+              "ProductImageTempName": null,
+              "ProductShortUrl": null,
+              "ProductCoupon": "",
+              "Posted": false,
+              "AmazonProcessed": false,
+              "WhyNotAllowed": null,
+              "AddedDateTime": "2024-12-31T10:20:11.8852358+05:00",
+              "ProductTitle": null,
+              "GroupType": 0,
+              "ShortTitle": null
+            },
+            {
+              "Id": 354860,
+              "Message": "👀 by Amazon Toilet Roll, 2-Ply Embossed<br />\n<br />\n💰 <strong>At only 6.49£</strong><br />\n<br />\n🔎 <a href=\"https://www.amazon.co.uk/dp/B092F68R3W/?tag=tarek24-21&psc=1\" target=\"_blank\" rel=\"nofollow\">https://www.amazon.co.uk/dp/B092F68R3W/?tag=tarek24-21&psc=1</a><br />\n<br />\n⭐ 12707 Reviews: 4.4 / 5.0<br />\n🚚 Sold and shipped by <i>Amazon</i>",
+              "OriginalPrice": 0.0,
+              "ProductPrice": 6.49,
+              "DiscountPercentage": 0.0,
+              "ProductUrl": "https://www.amazon.co.uk/dp/B092F68R3W",
+              "ProductImage": "https://m.media-amazon.com/images/I/61SnIkJm7kL._AC_SL1500_.jpg",
+              "ProductImageTempName": null,
+              "ProductShortUrl": null,
+              "ProductCoupon": "",
+              "Posted": false,
+              "AmazonProcessed": false,
+              "WhyNotAllowed": null,
+              "AddedDateTime": "2024-12-31T10:20:11.8872889+05:00",
+              "ProductTitle": "btfarm 2 Pack Solar String Lights Outdoor Garden, 6M/20FT Fairy Lights Solar Powered 8 Modes Copper Wire Solar Lights for Decorating Garden, Yard, Tree, Christmas, Warm White",
+              "GroupType": 0,
+              "ShortTitle": null
+            },
+            {
+              "Id": 354859,
+              "Message": "👀 Collection Cosmetics Intensely Pigmented Colour Eye Shadow Palette with 8 Blendable Shades<br />\n<br />\n💰 <strong>At only 3.35£</strong><br />\n<br />\n🔎 <a href=\"https://www.amazon.co.uk/dp/B09SVBTXBC/?tag=challengefr06-21&psc=1\" target=\"_blank\" rel=\"nofollow\">https://www.amazon.co.uk/dp/B09SVBTXBC/?tag=challengefr06-21&psc=1</a><br />\n<br />\n⭐ 213 Reviews: 4.5 / 5.0<br />\n🚚 Sold by <i>PinkToucan</i> and shipped by <i>Amazon</i>",
+              "OriginalPrice": 0.0,
+              "ProductPrice": 3.35,
+              "DiscountPercentage": 0.0,
+              "ProductUrl": "https://www.amazon.co.uk/dp/B09SVBTXBC",
+              "ProductImage": "https://m.media-amazon.com/images/I/61K9SLDHg+L._AC_SL1200_.jpg",
+              "ProductImageTempName": null,
+              "ProductShortUrl": null,
+              "ProductCoupon": "",
+              "Posted": false,
+              "AmazonProcessed": false,
+              "WhyNotAllowed": null,
+              "AddedDateTime": "2024-12-31T10:20:11.8891649+05:00",
+              "ProductTitle": "btfarm 2 Pack Solar String Lights Outdoor Garden, 6M/20FT Fairy Lights Solar Powered 8 Modes Copper Wire Solar Lights for Decorating Garden, Yard, Tree, Christmas, Warm White",
+              "GroupType": 0,
+              "ShortTitle": null
+            },
+            {
+              "Id": 354858,
+              "Message": "📉 <strong><i>HISTORICAL MINIMUM</i></strong> 📉<br />\n<br />\n👀 btfarm 2 Pack Solar String Lights Outdoor Garden, 6M/20FT Fairy Lights Solar Powered<br />\n<br />\n💰 <strong>At only 5.94£</strong> instead of 8.49£ <i>(-30%)</i><br />\n<br />\n🔎 <a href=\"https://www.amazon.co.uk/dp/B0D4QYXGKR/?tag=tarek24-21&psc=1\" target=\"_blank\" rel=\"nofollow\">https://www.amazon.co.uk/dp/B0D4QYXGKR/?tag=tarek24-21&psc=1</a>",
+              "OriginalPrice": 8.49,
+              "ProductPrice": 5.94,
+              "DiscountPercentage": 30.035335689045936395759717310,
+              "ProductUrl": "https://www.amazon.co.uk/dp/B0D4QYXGKR",
+              "ProductImage": "https://m.media-amazon.com/images/I/818in7bMU6L._AC_SX679_.jpg",
+              "ProductImageTempName": "C:\\Users\\MR\\source\\repos\\Automation.2024\\Deals\\Images\\20241231_102800526.jpg",
+              "ProductShortUrl": "https://amzlink.to/az0biddJ0UZA1",
+              "ProductCoupon": "",
+              "Posted": true,
+              "AmazonProcessed": false,
+              "WhyNotAllowed": null,
+              "AddedDateTime": "2024-12-31T10:20:11.8909972+05:00",
+              "ProductTitle": "btfarm 2 Pack Solar String Lights Outdoor Garden, 6M/20FT Fairy Lights Solar Powered 8 Modes Copper Wire Solar Lights for Decorating Garden, Yard, Tree, Christmas, Warm White",
+              "GroupType": 0,
+              "ShortTitle": null
+            },
+            {
+              "Id": 354856,
+              "Message": "📉 <strong><i>HISTORICAL MINIMUM</i></strong> 📉<br />\n<br />\n👀 Anne Klein Women's Genuine Diamond Dial Bangle Watch, AK/1980<br />\n<br />\n💰 <strong>At only 25.00£</strong> instead of 53.00£ <i>(-53%)</i><br />\n<br />\n🔎 <a href=\"https://www.amazon.co.uk/dp/B00ZHJDT7U/?tag=tarek24-21&psc=1\" target=\"_blank\" rel=\"nofollow\">https://www.amazon.co.uk/dp/B00ZHJDT7U/?tag=tarek24-21&psc=1</a>",
+              "OriginalPrice": 53.00,
+              "ProductPrice": 25.00,
+              "DiscountPercentage": 52.830188679245283018867924530,
+              "ProductUrl": "https://www.amazon.co.uk/dp/B00ZHJDT7U",
+              "ProductImage": "https://m.media-amazon.com/images/I/71QDsaFZF9L._AC_SX522_.jpg",
+              "ProductImageTempName": "C:\\Users\\MR\\source\\repos\\Automation.2024\\Deals\\Images\\20241231_103039873.jpg",
+              "ProductShortUrl": "https://amzlink.to/az0lEhJbJLSdB",
+              "ProductCoupon": "",
+              "Posted": true,
+              "AmazonProcessed": false,
+              "WhyNotAllowed": null,
+              "AddedDateTime": "2024-12-31T10:20:11.9011669+05:00",
+              "ProductTitle": "Anne Klein Women's Genuine Diamond Dial Bangle Watch",
+              "GroupType": 0,
+              "ShortTitle": null
+            },
+            {
+              "Id": 354855,
+              "Message": "📉 <strong><i>HISTORICAL MINIMUM</i></strong> 📉<br />\n<br />\n👀 RED OCEAN Boyfriend Birthday Gifts, Boyfriend Gifts<br />\n<br />\n💰 <strong>At only 9.99£</strong><br />\n<br />\n🔎 <a href=\"https://www.amazon.co.uk/dp/B0CTN1ZF2D/?tag=challengefr06-21&psc=1\" target=\"_blank\" rel=\"nofollow\">https://www.amazon.co.uk/dp/B0CTN1ZF2D/?tag=challengefr06-21&psc=1</a>",
+              "OriginalPrice": 0.0,
+              "ProductPrice": 9.99,
+              "DiscountPercentage": 0.0,
+              "ProductUrl": "https://www.amazon.co.uk/dp/B0CTN1ZF2D",
+              "ProductImage": "https://m.media-amazon.com/images/I/61n1lGDjY9L._AC_SL1500_.jpg",
+              "ProductImageTempName": null,
+              "ProductShortUrl": null,
+              "ProductCoupon": "",
+              "Posted": false,
+              "AmazonProcessed": false,
+              "WhyNotAllowed": null,
+              "AddedDateTime": "2024-12-31T10:20:11.9030757+05:00",
+              "ProductTitle": "btfarm 2 Pack Solar String Lights Outdoor Garden, 6M/20FT Fairy Lights Solar Powered 8 Modes Copper Wire Solar Lights for Decorating Garden, Yard, Tree, Christmas, Warm White",
+              "GroupType": 0,
+              "ShortTitle": null
+            },
+            {
+              "Id": 354854,
+              "Message": "📉 <strong><i>HISTORICAL MINIMUM</i></strong> 📉<br />\n<br />\n👀 UK Greetings Valentine's Day Card For Fiancée - Wonderful Memories Design<br />\n<br />\n💰 <strong>At only 0.64£</strong><br />\n<br />\n🔎 <a href=\"https://www.amazon.co.uk/dp/B0CP89Y6KQ/?tag=tarek24-21&psc=1\" target=\"_blank\" rel=\"nofollow\">https://www.amazon.co.uk/dp/B0CP89Y6KQ/?tag=tarek24-21&psc=1</a>",
+              "OriginalPrice": 0.0,
+              "ProductPrice": 0.64,
+              "DiscountPercentage": 0.0,
+              "ProductUrl": "https://www.amazon.co.uk/dp/B0CP89Y6KQ",
+              "ProductImage": "https://m.media-amazon.com/images/I/61QgJx9yNVL._AC_SL1500_.jpg",
+              "ProductImageTempName": null,
+              "ProductShortUrl": null,
+              "ProductCoupon": "",
+              "Posted": false,
+              "AmazonProcessed": false,
+              "WhyNotAllowed": null,
+              "AddedDateTime": "2024-12-31T10:20:11.9050815+05:00",
+              "ProductTitle": null,
+              "GroupType": 0,
+              "ShortTitle": null
+            },
+            {
+              "Id": 354853,
+              "Message": "👀 Blank Coupon Book: 25 DIY Blank Coupons Will Make An Ideal Gift For Birthday<br />\n<br />\n💰 <strong>At only 5.99£</strong><br />\n<br />\n🔎 <a href=\"https://www.amazon.co.uk/dp/B09M2XQBBJ/?tag=challengefr06-21&psc=1\" target=\"_blank\" rel=\"nofollow\">https://www.amazon.co.uk/dp/B09M2XQBBJ/?tag=challengefr06-21&psc=1</a><br />\n<br />\n⭐ 5 Reviews: 3.8 / 5.0<br />\n🚚 Sold and shipped by <i>Amazon</i>",
+              "OriginalPrice": 0.0,
+              "ProductPrice": 5.99,
+              "DiscountPercentage": 0.0,
+              "ProductUrl": "https://www.amazon.co.uk/dp/B09M2XQBBJ",
+              "ProductImage": "https://m.media-amazon.com/images/I/51m02WmGHqL._SL1375_.jpg",
+              "ProductImageTempName": null,
+              "ProductShortUrl": null,
+              "ProductCoupon": "",
+              "Posted": false,
+              "AmazonProcessed": false,
+              "WhyNotAllowed": null,
+              "AddedDateTime": "2024-12-31T10:20:11.907374+05:00",
+              "ProductTitle": null,
+              "GroupType": 0,
+              "ShortTitle": null
+            },
+            {
+              "Id": 354852,
+              "Message": "📉 <strong><i>HISTORICAL MINIMUM</i></strong> 📉<br />\n<br />\n👀 Xgody SIM Free Unlocked Mobile Phone Mate 70, 12GB+128GB/1TB Extension<br />\n<br />\n💰 <strong>At only 78.78£</strong> instead of 109.99£ <i>(-28%)</i><br />\n<br />\n🔎 <a href=\"https://www.amazon.co.uk/dp/B0DGD6DVQR/?tag=tarek24-21&psc=1\" target=\"_blank\" rel=\"nofollow\">https://www.amazon.co.uk/dp/B0DGD6DVQR/?tag=tarek24-21&psc=1</a>",
+              "OriginalPrice": 109.99,
+              "ProductPrice": 78.78,
+              "DiscountPercentage": 28.375306846076916083280298210,
+              "ProductUrl": "https://www.amazon.co.uk/dp/B0DGD6DVQR",
+              "ProductImage": "https://m.media-amazon.com/images/I/61d05t6L6wL.__AC_SX300_SY300_QL70_ML2_.jpg",
+              "ProductImageTempName": "C:\\Users\\MR\\source\\repos\\Automation.2024\\Deals\\Images\\20241231_103318000.jpg",
+              "ProductShortUrl": "https://amzlink.to/az0n37CYJZR6Z",
+              "ProductCoupon": "",
+              "Posted": true,
+              "AmazonProcessed": false,
+              "WhyNotAllowed": null,
+              "AddedDateTime": "2024-12-31T10:20:11.9111437+05:00",
+              "ProductTitle": "Xgody SIM Free Unlocked Mobile Phone Mate 70, 12GB+128GB/1TB Extension, 6.5\" HD+ Display, Android 14 Smartphone, 5500mAh QC, Octa-core, 24MP+8MP Camera, 4G Dual SIM, Face ID, OTG (Blue)",
+              "GroupType": 0,
+              "ShortTitle": null
+            },
+            {
+              "Id": 354851,
+              "Message": "👀 Gjinxi 2PCS Party Fake Beard, Fake Mustaches Funny Costume Party Male Man Halloween Beard<br />\n<br />\n💰 <strong>At only 4.49£</strong> instead of 4.99£ <i>(-10%)</i><br />\n<br />\n🔎 <a href=\"https://www.amazon.co.uk/dp/B0D6BKKF1M/?tag=tarek24-21&psc=1\" target=\"_blank\" rel=\"nofollow\">https://www.amazon.co.uk/dp/B0D6BKKF1M/?tag=tarek24-21&psc=1</a><br />\n<br />\n⭐ 2 Reviews: 5.0 / 5.0<br />\n🚚 Sold by <i>PromisingFuture</i> and shipped by <i>Amazon</i>",
+              "OriginalPrice": 4.99,
+              "ProductPrice": 4.49,
+              "DiscountPercentage": 10.020040080160320641282565130,
+              "ProductUrl": "https://www.amazon.co.uk/dp/B0D6BKKF1M",
+              "ProductImage": "https://m.media-amazon.com/images/I/71SGcGH8JHL._AC_SL1500_.jpg",
+              "ProductImageTempName": null,
+              "ProductShortUrl": null,
+              "ProductCoupon": "",
+              "Posted": false,
+              "AmazonProcessed": false,
+              "WhyNotAllowed": null,
+              "AddedDateTime": "2024-12-31T10:20:11.917457+05:00",
+              "ProductTitle": null,
+              "GroupType": 0,
+              "ShortTitle": null
+            },
+            {
+              "Id": 354850,
+              "Message": "👀 20 Pieces Love Coupons Valentines Day Naughty I Owe You Cards Sweetest Day Gifts for<br />\n<br />\n💰 <strong>At only 9.99£</strong><br />\n<br />\n🔎 <a href=\"https://www.amazon.co.uk/dp/B09LCV4PZQ/?tag=challengefr06-21&psc=1\" target=\"_blank\" rel=\"nofollow\">https://www.amazon.co.uk/dp/B09LCV4PZQ/?tag=challengefr06-21&psc=1</a><br />\n<br />\n⭐ 143 Reviews: 4.5 / 5.0<br />\n🚚 Sold by <i>Furgoin</i> and shipped by <i>Amazon</i>",
+              "OriginalPrice": 0.0,
+              "ProductPrice": 9.99,
+              "DiscountPercentage": 0.0,
+              "ProductUrl": "https://www.amazon.co.uk/dp/B09LCV4PZQ",
+              "ProductImage": "https://m.media-amazon.com/images/I/81kiyUma3KL._AC_SL1500_.jpg",
+              "ProductImageTempName": null,
+              "ProductShortUrl": null,
+              "ProductCoupon": "",
+              "Posted": false,
+              "AmazonProcessed": false,
+              "WhyNotAllowed": null,
+              "AddedDateTime": "2024-12-31T10:20:11.9206278+05:00",
+              "ProductTitle": null,
+              "GroupType": 0,
+              "ShortTitle": null
+            }
+          ];
+
+        /**
+         * Function to create star rating HTML
+         * @param {number} rating - The average rating
+         * @param {number} count - Number of reviews
+         * @returns {string} HTML string for rating
+         */
+        function createRating(rating, count) {
+            let stars = '';
+            for (let i = 1; i <= 5; i++) {
+                if (i <= Math.floor(rating)) {
+                    stars += '★';
+                } else if (i - rating < 1) {
+                    stars += '★'; // You can use half-stars if desired
+                } else {
+                    stars += '☆';
+                }
+            }
+            return `<span>${stars}</span> ${rating} (${count} reviews)`;
+        }
+
+        /**
+         * Function to format price
+         * @param {number} price 
+         * @returns {string} Formatted price with currency
+         */
+        function formatPrice(price) {
+            return price > 0 ? `£${price.toFixed(2)}` : 'N/A';
+        }
+
+        /**
+         * Function to generate product cards
+         */
+        function generateProductCards() {
+            const container = document.getElementById('product-container');
+
+            products.forEach(product => {
+                // Create card element
+                const card = document.createElement('div');
+                card.className = 'card';
+
+                // Product Image
+                const img = document.createElement('img');
+                img.src = product.ProductImage ? product.ProductImage : 'https://via.placeholder.com/300x200?text=No+Image';
+                img.alt = product.ProductTitle ? product.ProductTitle : 'Product Image';
+                card.appendChild(img);
+
+                // Card Content
+                const cardContent = document.createElement('div');
+                cardContent.className = 'card-content';
+
+                // Product Title
+                const title = document.createElement('h2');
+                title.textContent = product.ProductTitle ? product.ProductTitle : 'No Title Available';
+                cardContent.appendChild(title);
+
+                // Price Section
+                const priceSection = document.createElement('div');
+                priceSection.className = 'price-section';
+
+                const price = document.createElement('span');
+                price.className = 'price';
+                price.textContent = formatPrice(product.ProductPrice);
+                priceSection.appendChild(price);
+
+                if (product.OriginalPrice && product.OriginalPrice > product.ProductPrice) {
+                    const originalPrice = document.createElement('span');
+                    originalPrice.className = 'original-price';
+                    originalPrice.textContent = formatPrice(product.OriginalPrice);
+                    priceSection.appendChild(originalPrice);
+
+                    const discount = document.createElement('div');
+                    discount.className = 'discount';
+                    discount.textContent = `-${Math.round(product.DiscountPercentage)}%`;
+                    priceSection.appendChild(discount);
+                }
+
+                cardContent.appendChild(priceSection);
+
+                // Rating
+                if (product.Message.includes('⭐')) {
+                    const ratingDiv = document.createElement('div');
+                    ratingDiv.className = 'rating';
+
+                    // Extract rating and count from message
+                    const ratingMatch = product.Message.match(/⭐ (\d+) Reviews: ([\d.]+) \/ 5\.0/);
+                    if (ratingMatch) {
+                        const count = ratingMatch[1];
+                        const rating = parseFloat(ratingMatch[2]);
+                        ratingDiv.innerHTML = createRating(rating, count);
+                    } else {
+                        ratingDiv.textContent = 'No ratings';
+                    }
+
+                    cardContent.appendChild(ratingDiv);
+                }
+
+                // Action Button
+                const button = document.createElement('a');
+                button.className = 'btn';
+                button.href = product.ProductUrl;
+                button.target = '_blank';
+                button.rel = 'noopener noreferrer';
+                button.textContent = 'Buy Now';
+                cardContent.appendChild(button);
+
+                card.appendChild(cardContent);
+                container.appendChild(card);
+            });
+        }
+
+        // Initialize the product cards on page load
+        document.addEventListener('DOMContentLoaded', generateProductCards);
+    </script>
+</body>
+</html>
